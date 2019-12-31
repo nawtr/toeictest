@@ -1,0 +1,32 @@
+version: '3'
+
+services:
+  mysql:
+    image: mysql:5.7
+    restart: always
+    ports:
+      - 3309:3306
+    environment:
+      MYSQL_ROOT_PASSWORD: root
+      MYSQL_DATABASE: toeictest
+      MYSQL_USER: toeictest
+      MYSQL_PASSWORD: toeictest
+
+  nats:
+    image: nats:latest
+
+  node:
+    build:
+      context: .
+    container_name: toeictest-node
+    env_file: docker-compose.env
+    ports:
+      - 3003:3000
+    tty: true
+    depends_on:
+      - mysql
+      - nats
+    volumes:
+      - ./:/usr/src/toeictest
+
+

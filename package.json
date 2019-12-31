@@ -1,0 +1,33 @@
+{
+  "name": "micro-init",
+  "version": "1.0.0",
+  "license": "teic-test",
+  "description": "My Moleculer microservices project",
+  "scripts": {
+    "dev": "nodemon -L --exec moleculer-runner --repl --hot src/services",
+    "start": "moleculer-runner",
+    "cli": "moleculer connect NATS",
+    "migration": "chmod +x ./config/migrate.sh && /bin/bash ./config/migrate.sh",
+    "dbsetup": "chmod +x ./config/db-setup.sh  ./config/db-setup.sh "
+  },
+  "keywords": [
+    "microservices",
+    "moleculer"
+  ],
+  "author": "",
+  "devDependencies": {
+    "moleculer-repl": "^0.5.7",
+    "nodemon": "^2.0.2"
+  },
+  "dependencies": {
+    "dotenv": "^8.2.0",
+    "http-status": "^1.4.2",
+    "moleculer": "^0.13.9",
+    "moleculer-web": "^0.8.5",
+    "mysql": "^2.17.1",
+    "nats": "^1.3.0"
+  },
+  "engines": {
+    "node": ">= 8.x.x"
+  }
+}
